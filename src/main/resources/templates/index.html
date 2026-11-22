@@ -1,1 +1,10 @@
-Hello.
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/main :: layout('Home', ~{::section.page-content}, ~{::script.page-script})}">
+<body>
+<section class="page-content">
+	<h1>Home</h1>
+</section>
+</body>
+</html>
