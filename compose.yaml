@@ -1,0 +1,28 @@
+version: "3.9"
+
+name: book-library
+
+services:
+  database:
+    image: docker.io/postgres:18.1
+    container_name: book-library-database
+    restart: always
+    environment:
+      POSTGRES_USER: blib
+      POSTGRES_PASSWORD: blib01
+      POSTGRES_DB: blib
+    ports:
+      - "5432:5432"
+    volumes:
+      - book-library:/var/lib/postgresql:Z
+    networks:
+      - book-library
+
+networks:
+  book-library:
+    external: true
+    name: book-library
+
+volumes:
+  book-library:
+    external: true
